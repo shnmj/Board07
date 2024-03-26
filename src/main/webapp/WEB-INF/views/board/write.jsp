@@ -26,22 +26,37 @@
       color : white;
       font-weight: bold;
    }
+   
+   input[readonly] {
+      background: #EEE;
+   }
 
 </style>
 </head>
 <body>
   <main>
-	<h2>Menu Reg</h2>
-	<form action="/Menus/Write2" method="GET">
-	<table>	
+  
+  <%@include file="/WEB-INF/include/menus.jsp" %>
+  
+	<h2>게시글 등록</h2>
+	<form action="/Board/Write" method="POST">
+	<table>
 	 <tr>
-	   <td>Menu Name</td>
-	   <td><input type="text" name="menu_name" /></td>
-	 </tr>	
+	   <td>제목</td>
+	   <td><input type="text" name="title" /></td>
+	 </tr>
+	 <tr>
+	   <td>작성자</td>
+	   <td><input type="password" name="writer" /></td>
+	 </tr>
+	 <tr>
+	   <td>내용</td>
+	   <td><textarea name="content"></textarea></td>
+	 </tr>
 	 <tr>
 	   <td colspan="2">
-	    <input type="submit" value="Add" />
-	    <input type="button" value="List" id="goList" />
+	    <input type="submit" value="글 쓰기" />
+	    <input type="button" value="목록" id="goList" />
 	   </td>
 	 </tr>
 	
@@ -53,7 +68,7 @@
   <script>
   	const  goListEl  = document.getElementById('goList');
   	goListEl.addEventListener('click', function(e) {
-  		location.href = '/Menus/List';
+  		location.href = '/Board/List';
   	})
   
   </script>
