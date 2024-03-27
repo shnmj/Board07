@@ -48,7 +48,7 @@
 <body>
 	<main>
 		
-		<%@include file="/WEB-INF/include/menus.jsp" %>
+		<%@include file="/WEB-INF/include/menus.jsp" %> 
 		
 	  <h2>게시물 목록</h2>
 	  <table id = 'table'>
@@ -61,7 +61,7 @@
 	    </tr>
 	    <tr>
 	      <td colspan="5">
-	        [<a href="/Board/WriteForm">새 글 추가</a>]
+	        [<a href="/Board/WriteForm?menu_id=${menu_id}">새 글 추가</a>]
 	      </td>
 	    </tr>
 	    

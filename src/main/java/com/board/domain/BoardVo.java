@@ -10,12 +10,16 @@ import lombok.NoArgsConstructor;
 
 public class BoardVo {
 	private  int     bno;
-	private  String  meun_id;
+	private  String  menu_id;
 	private  String  title;
 	private  String  content;
 	private  String  writer;
 	private  String  regdate;
 	private  int     hit;
+	public String getMeun_id() {
+
+		return null;
+	}
 	
 	
 }

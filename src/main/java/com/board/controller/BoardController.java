@@ -25,9 +25,11 @@ public class BoardController {
 	@Autowired
 	private BoardMapper boardMapper;
 	
+	
 	// /Board/List?menu_id=MENU01
 	@RequestMapping("/List")
 	public ModelAndView list(MenuVo menuVo) {
+	// public ModelAndView list(@Param String menu_id) {  -- Legacy ver.
 		log.info("menuVo : { }", menuVo);
 		
 		// 메뉴 목록
@@ -38,33 +40,58 @@ public class BoardController {
 		List<BoardVo> boardList = boardMapper.getBoardList(menuVo);
 		System.out.println(boardList);
 		
+		String    menu_id = menuVo.getMenu_id();
+		
 		ModelAndView mv         = new ModelAndView();
+		mv.addObject("menu_id",   menu_id);
 		mv.addObject("menuList",  menuList);
 		mv.addObject("boardList", boardList);
 		mv.setViewName("board/list");
 		return mv;
 	}
 	
-	// /Board/WriteForm
+	// /Board/WriteForm?menu_id=MENU01
 	@RequestMapping("/WriteForm")
-	public ModelAndView writeForm() {
+	public ModelAndView writeForm(MenuVo menuVo) {
 		
-		ModelAndView mv = new ModelAndView();
+		String       menu_id = menuVo.getMenu_id(); 
+		
+		ModelAndView mv      = new ModelAndView();
+		mv.addObject("menu_id", menu_id);
 		mv.setViewName("board/write");
 		
 		return mv;
 	}
 	
-	//  /Board/Write
+	/*  /Board/Write
 	@RequestMapping("/Write")
 	public ModelAndView write() {
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("board/List");
 		return mv;
+
+	}*/
+	
+	// /Board/Write
+	// menu_id=MENU01, title=sss, writer=sss, content=sss
+	@RequestMapping("/Write")
+	public ModelAndView write(BoardVo boardVo) {
+		
+		// 넘어온 값 저장 Board 저장 db
+		boardMapper.insertBoard(boardVo);
+		
+		
+		
+		String menu_id  = boardVo.getMeun_id(); 
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("redirect:/Board/List?menu_id=" + menu_id);
+		return mv;
 		
 		
 	}
+	
 	
 	
 }
