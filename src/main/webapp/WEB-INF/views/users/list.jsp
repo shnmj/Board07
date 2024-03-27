@@ -36,18 +36,18 @@
 </head>
 <body>
 	<main>  
-	  <h2>User List</h2>
+	  <h2>사용자 목록</h2>
 	  <table>
 	    <tr>
 	      <td>ID</td>
-	      <td>Name</td>
-	      <td>Email</td>
+	      <td>이름</td>
+	      <td>이메일</td>
 	      <td>Point</td>
-	      <td>InDate</td>	   
+	      <td>가입일</td>	   
 	    </tr>
 	    <tr>
 	      <td colspan="5">
-	        [<a href="/Users/WriteForm">Add Member</a>]
+	        [<a href="/Users/WriteForm">사용자 추가</a>]
 	      </td>
 	    </tr>
 	    

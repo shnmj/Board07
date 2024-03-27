@@ -14,4 +14,8 @@ public interface BoardMapper {
 
 	void insertBoard(BoardVo boardVo);
 
+	BoardVo getBoard(BoardVo boardVo);
+
+	void incHit(BoardVo boardVo);
+
 }

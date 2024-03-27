@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="icon" type="image/png" href="/img/favicon.png" />
+<link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
 <link rel="stylesheet"  href="/css/common.css" />
 <style>
    input:not(input[type=submit]) { width:100%; }
@@ -22,8 +23,8 @@
    }
    
    td:not([colspan]):first-child {
-      background: grey;
-      color : white;
+      background: lightblue;
+      color : black;
       font-weight: bold;
    }
    
@@ -32,11 +33,14 @@
    }
    
    textarea {
-   		height : 300px; 
-   		width  : 100%
+   		height : 250px; 
+   		width  : 100%;
    }
 
 </style>
+
+<script src ="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/browser-scss@1.0.3/dist/browser-scss.min.js"></script>
 </head>
 <body>
   <main>

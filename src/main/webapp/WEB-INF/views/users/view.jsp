@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="icon" type="image/png" href="/img/favicon.png" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="icon" type="image/png" href="/img/favicon.png" />
 <link rel="stylesheet"  href="/css/common.css" />
 <style>
    input:not(input[type=submit]) { width:100%; }
@@ -27,8 +27,8 @@
    }
    
    td:not([colspan]):first-child {
-      background: grey;
-      color : white;
+      background: lightblue;
+      color : black;
       font-weight: bold;
    }
    
@@ -51,19 +51,19 @@
 	   <td>${vo.passwd}</td>
 	 </tr>
 	 <tr>
-	   <td>Name</td>
+	   <td>이름</td>
 	   <td>${vo.username}</td>
 	 </tr>
 	 <tr>
-	   <td>Email</td>
+	   <td>이메일</td>
 	   <td>${vo.email}</td>
 	 </tr>
 	 <tr>
-	   <td>Member Rank</td>
+	   <td>회원 등급</td>
 	   <td>${vo.upt}</td>
 	 </tr>
 	 <tr>
-	   <td>Point</td>
+	   <td>포인트</td>
 	   <td>
 	   	<%-- <c:if  test="${vo.upoint ne 0}">
 	   		${vo['upoint'] } --%>
@@ -79,7 +79,7 @@
 	   <%-- <td>${vo['upoint']} + 1000</td> --%>
 	 </tr>
 	 <tr>
-	   <td>InDate</td>
+	   <td>가입일</td>
 	   <td>${vo.indate}</td>
 	 </tr>
 	 <tr>

@@ -31,17 +31,17 @@
 </head>
 <body>
   <main>
-	<h2>Menu Reg</h2>
+	<h2>메뉴 등록</h2>
 	<form action="/Menus/Write2" method="GET">
 	<table>	
 	 <tr>
-	   <td>Menu Name</td>
+	   <td>메뉴 이름</td>
 	   <td><input type="text" name="menu_name" /></td>
 	 </tr>	
 	 <tr>
 	   <td colspan="2">
-	    <input type="submit" value="Add" />
-	    <input type="button" value="List" id="goList" />
+	    <input type="submit" value="추가" />
+	    <input type="button" value="목록" id="goList" />
 	   </td>
 	 </tr>
 	

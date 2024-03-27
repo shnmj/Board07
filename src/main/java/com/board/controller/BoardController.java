@@ -30,7 +30,7 @@ public class BoardController {
 	@RequestMapping("/List")
 	public ModelAndView list(MenuVo menuVo) {
 	// public ModelAndView list(@Param String menu_id) {  -- Legacy ver.
-		log.info("menuVo : { }", menuVo);
+		log.info("============ menuVo : { }", menuVo);
 		
 		// 메뉴 목록
 		List<MenuVo> menuList   = menuMapper.getMenuList();
@@ -50,28 +50,27 @@ public class BoardController {
 		return mv;
 	}
 	
+	
 	// /Board/WriteForm?menu_id=MENU01
 	@RequestMapping("/WriteForm")
 	public ModelAndView writeForm(MenuVo menuVo) {
 		
-		String       menu_id = menuVo.getMenu_id(); 
+		// 메뉴 목록 조회
+		List<MenuVo> mList = menuMapper.getMenuList();
+		System.out.println("<MenuList> : " + mList);
 		
-		ModelAndView mv      = new ModelAndView();
+		// ?menu_id=MENU01 넘어온 menu_id 처리
+		
+		String       menu_id  = menuVo.getMenu_id(); 
+		
+		ModelAndView mv       = new ModelAndView();
+		mv.addObject("menuList", mList);
 		mv.addObject("menu_id", menu_id);
 		mv.setViewName("board/write");
 		
 		return mv;
 	}
 	
-	/*  /Board/Write
-	@RequestMapping("/Write")
-	public ModelAndView write() {
-		
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("board/List");
-		return mv;
-
-	}*/
 	
 	// /Board/Write
 	// menu_id=MENU01, title=sss, writer=sss, content=sss
@@ -82,13 +81,40 @@ public class BoardController {
 		boardMapper.insertBoard(boardVo);
 		
 		
-		
 		String menu_id  = boardVo.getMeun_id(); 
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("redirect:/Board/List?menu_id=" + menu_id);
 		return mv;
 		
+		
+	}
+	
+	//  /Board/View?bno=1
+	@RequestMapping("/View")
+	public ModelAndView view(BoardVo boardVo) {
+		
+		// 메뉴목록 조회
+		List<MenuVo>  menuList = menuMapper.getMenuList();
+		
+		// 조회수 증가 (현재 bno의 hit = hit+1)
+		boardMapper.incHit(boardVo);
+		
+		// bno로 조회한 게시글 정보
+		BoardVo       vo       = boardMapper.getBoard(boardVo);
+		
+		// vo.content 안의 \n을 '<br>' 로 변경
+		String  content = vo.getContent();
+		if(content != null) {
+			content         = content.replace("\n", "<br>");
+			vo.setContent(content);
+		}
+		
+		ModelAndView  mv       =  new ModelAndView();
+		mv.addObject("menuList", menuList);
+		mv.addObject("vo", vo  );
+		mv.setViewName("board/view");
+		return mv;
 		
 	}
 	

@@ -36,7 +36,7 @@
 </head>
 <body>
 	<main>  
-	  <h2>Menu List</h2>
+	  <h2>메뉴 목록</h2>
 	  <table>
 	    <tr>
 	      <td>Menu_id</td>
@@ -47,8 +47,8 @@
 	    </tr>
 	    <tr>
 	      <td colspan="5">
-	        [<a href="/Menus/WriteForm">Menu Reg</a>]&nbsp;&nbsp;&nbsp;	      
-	        [<a href="/Menus/WriteForm2">Menu Reg2</a>]	      
+	        [<a href="/Menus/WriteForm">메뉴 등록1</a>]&nbsp;&nbsp;&nbsp;	      
+	        [<a href="/Menus/WriteForm2">메뉴 등록2</a>]	      
 	      </td>
 	    </tr>
 	    
