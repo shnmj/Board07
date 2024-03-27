@@ -16,10 +16,5 @@ public class BoardVo {
 	private  String  writer;
 	private  String  regdate;
 	private  int     hit;
-	public String getMeun_id() {
-
-		return null;
-	}
-	
 	
 }

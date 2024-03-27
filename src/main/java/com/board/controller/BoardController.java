@@ -81,7 +81,7 @@ public class BoardController {
 		boardMapper.insertBoard(boardVo);
 		
 		
-		String menu_id  = boardVo.getMeun_id(); 
+		String menu_id  = boardVo.getMenu_id(); 
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("redirect:/Board/List?menu_id=" + menu_id);
