@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.board.domain.BoardVo;
 import com.board.mapper.BoardMapper;
+import com.board.menus.domain.MenuVo;
 import com.board.menus.domain.MenuVo2;
 import com.board.menus.mapper.MenuMapper;
 
@@ -28,22 +29,25 @@ public class BoardController {
 	
 	// /Board/List?menu_id=MENU01
 	@RequestMapping("/List")
-	public ModelAndView list(MenuVo2 menuVo) {
+	public ModelAndView list(MenuVo menuVo) {
 	// public ModelAndView list(@Param String menu_id) {  -- Legacy ver.
 		log.info("============ menuVo : { }", menuVo);
 		
 		// 메뉴 목록
-		List<MenuVo2> menuList   = menuMapper.getMenuList();
+		List<MenuVo> menuList  = menuMapper.getMenuList();
 		
 		
 		// 게시물 목록
 		List<BoardVo> boardList = boardMapper.getBoardList(menuVo);
 		System.out.println(boardList);
 		
-		String    menu_id = menuVo.getMenu_id();
+		MenuVo    mVo           = menuMapper.getMenu(menuVo.getMenu_id() );
+		String    menu_id       = mVo.getMenu_id();
+		String    menu_name     = mVo.getMenu_name();
 		
 		ModelAndView mv         = new ModelAndView();
 		mv.addObject("menu_id",   menu_id);
+		mv.addObject("menu_name", menu_name);
 		mv.addObject("menuList",  menuList);
 		mv.addObject("boardList", boardList);
 		mv.setViewName("board/list");
@@ -53,10 +57,10 @@ public class BoardController {
 	
 	// /Board/WriteForm?menu_id=MENU01
 	@RequestMapping("/WriteForm")
-	public ModelAndView writeForm(MenuVo2 menuVo) {
+	public ModelAndView writeForm(MenuVo menuVo) {
 		
 		// 메뉴 목록 조회
-		List<MenuVo2> mList = menuMapper.getMenuList();
+		List<MenuVo> mList   = menuMapper.getMenuList();
 		System.out.println("<MenuList> : " + mList);
 		
 		// ?menu_id=MENU01 넘어온 menu_id 처리
@@ -95,28 +99,77 @@ public class BoardController {
 	public ModelAndView view(BoardVo boardVo) {
 		
 		// 메뉴목록 조회
-		List<MenuVo2>  menuList = menuMapper.getMenuList();
+		List<MenuVo>  menuList = menuMapper.getMenuList();
 		
 		// 조회수 증가 (현재 bno의 hit = hit+1)
 		boardMapper.incHit(boardVo);
 		
 		// bno로 조회한 게시글 정보
-		BoardVo       vo       = boardMapper.getBoard(boardVo);
+		BoardVo       vo    = boardMapper.getBoard(boardVo);
 		
 		// vo.content 안의 \n을 '<br>' 로 변경
-		String  content = vo.getContent();
+		String  content     = vo.getContent();
 		if(content != null) {
 			content         = content.replace("\n", "<br>");
 			vo.setContent(content);
 		}
 		
-		ModelAndView  mv       =  new ModelAndView();
+		ModelAndView  mv    =  new ModelAndView();
 		mv.addObject("menuList", menuList);
 		mv.addObject("vo", vo  );
 		mv.setViewName("board/view");
 		return mv;
 		
 	}
+	
+	//  /Board/Delete?bno=3&menu_id=MENU01
+	@RequestMapping("/Delete") 
+		public ModelAndView delete(BoardVo boardVo) {
+			
+			// 게시글 삭제
+			boardMapper.deleteBoard(boardVo);
+			
+			String menu_id = boardVo.getMenu_id();
+			
+			// 재조회
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("redirect:/Board/List?menu_id=" + menu_id);
+			return mv;
+		}
+
+	//  /Board/UpdateForm?bno=4&menu_id=MENU01
+	@RequestMapping("/UpdateForm")
+	public ModelAndView updateForm(BoardVo boardVo) {
+		
+		List<MenuVo> menuList = menuMapper.getMenuList(); 
+		
+		BoardVo      vo       = boardMapper.getBoard(boardVo);
+		
+		ModelAndView mv       = new ModelAndView();
+		mv.addObject("menuList", menuList);
+		mv.addObject("vo", vo);
+		mv.setViewName("board/update");  // update.jsp
+		return mv;
+	}
+	
+	//  /Board/Update
+	@RequestMapping("/Update")
+	public ModelAndView update(BoardVo boardVo) {
+		
+		// 수정
+		boardMapper.updateBoard();
+		
+		
+		String       menu_id = boardVo.getMenu_id();
+		
+		ModelAndView mv      = new ModelAndView();
+		mv.setViewName("redirect:/Board/List?menu_id=" + menu_id);
+		
+		return mv;
+		
+		
+	}
+	
 	
 	
 	

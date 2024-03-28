@@ -47,8 +47,7 @@
    		}	
   
   }
-
-
+  
 </style>
 
 <script src ="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" ></script>
@@ -88,7 +87,7 @@
 	   	<a class = "btn btn-warning btn-sm"
 	   		 href  ="/Board/UpdateForm?bno${vo.bno}&menu_id=${vo.menu_id}">수정</a>&nbsp;&nbsp;
 	   	<a class = "btn btn-danger btn-sm"
-	   		 href  ="/Board/Delete?bno${vo.bno}&menu_id=${vo.menu_id}">삭제</a>&nbsp;&nbsp;<br><br>
+	   		  href  = "/Board/Delete?bno=${vo.bno}&menu_id=${vo.menu_id}">삭제</a>&nbsp;&nbsp;<br><br>
 	   	<a class = "btn btn-secondary btn-sm"
 	   		 href  ="/Board/List?menu_id=${vo.menu_id}">목록으로</a>&nbsp;&nbsp;
 	   	<a class = "btn btn-info btn-sm"

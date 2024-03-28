@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.board.menus.domain.MenuVo;
 import com.board.menus.domain.MenuVo2;
 import com.board.menus.mapper.MenuMapper;
 
@@ -22,7 +23,7 @@ public class MenuController {
 	@RequestMapping("/List")   
 	public   String   list( Model model ) {
 		// 조회결과 -> ArrayList 로 돌려줌 
-		List<MenuVo2> menuList = menuMapper.getMenuList();
+		List<MenuVo> menuList = menuMapper.getMenuList();
 				
 		// 조회 결과 넘겨줌 ( Model )
 		model.addAttribute( "menuList", menuList );
@@ -123,7 +124,7 @@ public class MenuController {
 		String  menu_id = menuVo.getMenu_id();
 		
 		// 수정할 데이터를 menu_id 조회
-		MenuVo2  menu  = menuMapper.getMenu( menu_id );
+		MenuVo  menu  = menuMapper.getMenu( menu_id );
 		
 		// 조회한 내용을 모델에 담음 
 		model.addAttribute("menu", menu);

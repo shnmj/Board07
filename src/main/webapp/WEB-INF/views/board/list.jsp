@@ -68,7 +68,7 @@
 	      </td>
 	    </tr>
 	    
-	    <c:forEach  var="boardVo" items="${ boardList }" >
+	    <c:forEach  var="boardVo" items="${boardList}" >
 	    <tr>
 	      <td>${boardVo.bno}</td>
 	      <td>
