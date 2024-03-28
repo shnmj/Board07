@@ -1,13 +1,15 @@
 package com.board.user.controller;
+
+
 /*
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 */
 import java.util.HashMap;
-
 import java.util.List;
 
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.board.user.domain.UserVo;
 import com.board.user.mapper.UserMapper;
 
+import ch.qos.logback.classic.Logger;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -42,9 +45,9 @@ public class UserController {
 	
 	//  /Users/WriteForm
 	@RequestMapping("/WriteForm")
-	public  ModelAndView   writeForm() {
+	public ModelAndView  writeForm() {
 		
-		ModelAndView    mv    = new ModelAndView();
+		ModelAndView mv  = new ModelAndView();
 		
 		/*
 		LocalDateTime   today = LocalDateTime.now();
@@ -63,11 +66,11 @@ public class UserController {
 	//  /Users/Write
 	@RequestMapping("/Write")
 	public  ModelAndView  write( UserVo  userVo ) {
-		// Commit
+		// 저장 
 		userMapper.insertUser( userVo );		
 		
 		// data 가지고 이동 
-		ModelAndView   mv   =  new  ModelAndView();
+		ModelAndView  mv  =  new  ModelAndView();
 		mv.setViewName("redirect:/Users/List");
 		return   mv;
 	}
@@ -80,6 +83,7 @@ public class UserController {
 		// userid=U0005  -> db 조회
 		HashMap<String, Object>  map  =  userMapper.getUser(userVo);
 		// System.out.println(vo);
+		Logger log = (Logger) LoggerFactory.getLogger(UserController.class);
 		log.info("map : {}", map); 
 		
 		// map.get("userid")
@@ -94,7 +98,7 @@ public class UserController {
 	//  /Users/UpdateForm?userid=shin
 	@RequestMapping("/UpdateForm")
 	public ModelAndView updateForm(UserVo userVo) {
-		// ID로 수정할 한 명의 data조회
+		// ID로 수정할 한 명의 data 조회
 		HashMap<String, Object> map = userMapper.getUser(userVo);
 		
 		// Model에 담음
@@ -111,9 +115,10 @@ public class UserController {
 	@RequestMapping("/Update")
 	public ModelAndView update(UserVo userVo) {
 		
+		Logger log = (Logger) LoggerFactory.getLogger(UserController.class);
 		log.info("userVo : {}", userVo);
-		// Update
 		
+		// 수정 
 		userMapper.updateUser(userVo);
 		
 		ModelAndView mv = new ModelAndView();

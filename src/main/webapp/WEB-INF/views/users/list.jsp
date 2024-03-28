@@ -18,12 +18,12 @@
   }
   
   tr:first-child {
-     background-color: grey;
-     color : white;
-     font-weight: bold;
+     background-color : lightblue;
+     color            : black;
+     font-weight      : bold;
      /* SCSS 문법에 적용 */
      td {
-        border-color : pink;
+        border-color  : pink;
      }
   }
  
@@ -42,7 +42,7 @@
 	      <td>ID</td>
 	      <td>이름</td>
 	      <td>이메일</td>
-	      <td>Point</td>
+	      <td>포인트</td>
 	      <td>가입일</td>	   
 	    </tr>
 	    <tr>
@@ -51,7 +51,7 @@
 	      </td>
 	    </tr>
 	    
-	    <c:forEach  var="userVo" items="${ userList }" >
+	    <c:forEach  var="userVo" items="${userList}" >
 	    <tr>
 	      <td>${userVo.userid}</td>
 	      <td>

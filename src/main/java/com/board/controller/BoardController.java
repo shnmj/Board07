@@ -2,6 +2,7 @@ package com.board.controller;
 
 import java.util.List;
 
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,9 +11,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.board.domain.BoardVo;
 import com.board.mapper.BoardMapper;
 import com.board.menus.domain.MenuVo;
-import com.board.menus.domain.MenuVo2;
 import com.board.menus.mapper.MenuMapper;
 
+import ch.qos.logback.classic.Logger;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -31,6 +32,7 @@ public class BoardController {
 	@RequestMapping("/List")
 	public ModelAndView list(MenuVo menuVo) {
 	// public ModelAndView list(@Param String menu_id) {  -- Legacy ver.
+		Logger log = (Logger) LoggerFactory.getLogger(BoardController.class);
 		log.info("============ menuVo : { }", menuVo);
 		
 		// 메뉴 목록
@@ -39,7 +41,7 @@ public class BoardController {
 		
 		// 게시물 목록
 		List<BoardVo> boardList = boardMapper.getBoardList(menuVo);
-		System.out.println(boardList);
+		// System.out.println(boardList);
 		
 		MenuVo    mVo           = menuMapper.getMenu(menuVo.getMenu_id() );
 		String    menu_id       = mVo.getMenu_id();
@@ -85,20 +87,20 @@ public class BoardController {
 		boardMapper.insertBoard(boardVo);
 		
 		
-		String menu_id  = boardVo.getMenu_id(); 
+		String      menu_id  = boardVo.getMenu_id(); 
 		
-		ModelAndView mv = new ModelAndView();
+		ModelAndView mv      = new ModelAndView();
 		mv.setViewName("redirect:/Board/List?menu_id=" + menu_id);
 		return mv;
 		
 		
 	}
 	
-	//  /Board/View?bno=1
+	//  /Board/View?bno=1&menu_id=MENU01
 	@RequestMapping("/View")
 	public ModelAndView view(BoardVo boardVo) {
 		
-		// 메뉴목록 조회
+		// 메뉴목록 조회(menus.jsp 용) 
 		List<MenuVo>  menuList = menuMapper.getMenuList();
 		
 		// 조회수 증가 (현재 bno의 hit = hit+1)
@@ -157,7 +159,7 @@ public class BoardController {
 	public ModelAndView update(BoardVo boardVo) {
 		
 		// 수정
-		boardMapper.updateBoard();
+		boardMapper.updateBoard(boardVo);
 		
 		
 		String       menu_id = boardVo.getMenu_id();

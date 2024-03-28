@@ -12,20 +12,20 @@
    input[type=submit] { width : 100px; }
    #goList  { width : 80px; }
    
-   td { 
-      padding:10px;
-      width: 700px;
-      text-align: center;
-   }
-   td:nth-of-type(1) {
-      width : 200px;
-   }
-   
-   td:not([colspan]):first-child {
-      background: grey;
-      color : white;
-      font-weight: bold;
-   }
+	   td { 
+	      padding    : 10px;
+	      width      : 700px;
+	      text-align : center;
+	   }
+	   td:nth-of-type(1) {
+	      width      : 200px;
+	   }
+	   
+	   td:not([colspan]):first-child {
+	      background : lightblue;
+	      color      : black;
+	      font-weight: bold;
+	   }
 
 </style>
 </head>

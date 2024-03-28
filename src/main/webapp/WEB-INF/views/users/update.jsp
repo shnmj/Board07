@@ -12,30 +12,30 @@
    input[type=submit] { width : 100px; }
    #goList  { width : 80px; }
    
-   td { 
-      padding:10px;
-      width: 700px;
-      text-align: center;
-   }
-   td:nth-of-type(1) {
-      width : 200px;
-   }
-   
-   td:not([colspan]):first-child {
-      background: grey;
-      color : white;
-      font-weight: bold;
-   }
-   
-   input[readonly] {
-      background: #EEE;
-   }
+	   td { 
+	      padding    : 10px;
+	      width      : 700px;
+	      text-align : center;
+	   }
+	   td:nth-of-type(1) {
+	      width      : 200px;
+	   }
+	   
+	   td:not([colspan]):first-child {
+	      background : lightblue;
+	      color      : black;
+	      font-weight: bold;
+	   }
+	   
+	   input[readonly] {
+	      background : #EEE;
+	   }
 
 </style>
 </head>
 <body>
   <main>
-	<h2>회원 정보 수정</h2>
+	<h2>사용자 수정</h2>
 	<form action="/Users/Update" method="POST">
 	<table>
 	 <tr>
@@ -47,25 +47,25 @@
 	   <td><input type="password" name="passwd" value="${vo.passwd}" /></td>
 	 </tr>
 	 <tr>
-	   <td>Name</td>
+	   <td>이름</td>
 	   <td><input type="text" name="username" value="${vo.username}" /></td>
 	 </tr>
 	 <tr>
-	   <td>Email</td>
+	   <td>이메일</td>
 	   <td><input type="text" name="email" value="${vo.email}"/></td>
 	 </tr>
 	 <tr>
-	   <td>Point</td>
+	   <td>포인트</td>
 	   <td><input type="text" name="upoint" value="${vo.upoint}" /></td>
 	 </tr>
 	 <tr>
-	   <td>InDate</td>
-	   <td><input type="text" value="${ now }" readonly /></td>
+	   <td>가입일</td>
+	   <td><input type="text" value="${now}" readonly /></td>
 	 </tr>
 	 <tr>
 	   <td colspan="2">
-	    <input type="submit" value="Update" />
-	    <input type="button" value="List" id="goList" />
+	    <input type="submit" value="수정" />
+	    <input type="button" value="목록" id="goList" />
 	   </td>
 	 </tr>
 	

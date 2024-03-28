@@ -12,44 +12,44 @@
    input[type=submit] { width : 100px; }
    #goList  { width : 80px; }
    
-   td { 
-      padding:10px;
-      width: 700px;
-      text-align: center;
-   }
-   td:nth-of-type(1) {
-      width : 200px;
-   }
-   
-   td:not([colspan]):first-child {
-      background: grey;
-      color : white;
-      font-weight: bold;
-   }
+	   td { 
+	      padding     : 10px;
+	      width       : 700px;
+	      text-align  : center;
+	   }
+	   td:nth-of-type(1) {
+	      width : 200px;
+	   }
+	   
+	   td:not([colspan]):first-child {
+	      background  : lightblue;
+	      color       : black;
+	      font-weight : bold;
+	   }
 
 </style>
 </head>
 <body>
   <main>
-	<h2>Menu Update</h2>
+	<h2>메뉴 수정</h2>
 	<form action="/Menus/Update" method="GET">
 	<table>
 	 <tr>
-	   <td>Menu ID</td>
+	   <td>메뉴 ID</td>
 	   <td><input type="text" name="menu_id"  value="${menu.menu_id}" readonly /></td>
 	 </tr>
 	 <tr>
-	   <td>Menu Name</td>
+	   <td>메뉴 이름</td>
 	   <td><input type="text" name="menu_name" value="${menu.menu_name}" /></td>
 	 </tr>
 	 <tr>
-	   <td>Menu in Order</td>
+	   <td>메뉴 순서</td>
 	   <td><input type="number" name="menu_seq" value="${menu.menu_seq}"/></td>
 	 </tr>
 	 <tr>
 	   <td colspan="2">
-	    <input type="submit" value="Update" />
-	    <input type="button" value="List" id="goList" />
+	    <input type="submit" value="수정" />
+	    <input type="button" value="목록" id="goList" />
 	   </td>
 	 </tr>
 	

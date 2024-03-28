@@ -14,33 +14,33 @@
    input[type=submit] { width : 100px; }
    #goList  { width : 80px; }
    
-   td { 
-      padding:10px;
-      width: 700px;
-      text-align: center;
-   }
-   td:nth-of-type(1) {
-      width : 200px;
-   }
-   td:nth-of-type(2) {
-      text-align: left;
-   }
-   
-   td:not([colspan]):first-child {
-      background: lightblue;
-      color : black;
-      font-weight: bold;
-   }
-   
-   input[readonly] {
-      background: #EEE;
-   }
+	   td { 
+	      padding    : 10px;
+	      width      : 700px;
+	      text-align : center;
+	   }
+	   td:nth-of-type(1) {
+	      width      : 200px;
+	   }
+	   td:nth-of-type(2) {
+	      text-align : left;
+	   }
+	   
+	   td:not([colspan]):first-child {
+	      background : lightblue;
+	      color      : black;
+	      font-weight: bold;
+	   }
+	   
+	   input[readonly] {
+	      background : #EEE;
+	   }
 
 </style>
 </head>
 <body>
   <main>
-	<h2>회원 정보</h2>
+	<h2>사용자 상세 정보</h2>
 	<table>
 	 <tr>
 	   <td>ID</td>
@@ -59,7 +59,7 @@
 	   <td>${vo.email}</td>
 	 </tr>
 	 <tr>
-	   <td>회원 등급</td>
+	   <td>회원등급</td>
 	   <td>${vo.upt}</td>
 	 </tr>
 	 <tr>
@@ -88,7 +88,7 @@
 	   href="/Users/WriteForm" >회원가입</a>
 	   
 	   <a class="btn btn-primary btn-sm" role="button"
-	   href="/Users/UpdateForm?userid="${vo.userid}>회원수정</a>
+	   href="/Users/UpdateForm?userid=${vo.userid}">회원정보수정</a>
 	   
 	   <a class="btn btn-primary btn-sm" role="button"
 	   href="/Users/Delete?userid=${vo.userid}">회원삭제</a>
@@ -108,7 +108,7 @@
   <script>
   	const  goListEl  = document.getElementById('goList');
   	goListEl.addEventListener('click', function(e) {
-  		location.href = '/Menus/List';
+  		location.href = '/Users/List';
   	})
   
   </script>

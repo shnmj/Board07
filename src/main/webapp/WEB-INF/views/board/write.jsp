@@ -13,29 +13,29 @@
    input[type=submit] { width : 100px; }
    #goList  { width : 80px; }
    
-   td { 
-      padding:10px;
-      width: 700px;
-      text-align: center;
-   }
-   td:nth-of-type(1) {
-      width : 200px;
-   }
-   
-   td:not([colspan]):first-child {
-      background: lightblue;
-      color : black;
-      font-weight: bold;
-   }
-   
-   input[readonly] {
-      background: #EEE;
-   }
-   
-   textarea {
-   		height : 250px; 
-   		width  : 100%;
-   }
+	   td { 
+	      padding    : 10px;
+	      width      : 700px;
+	      text-align : center;
+	   }
+	   td:nth-of-type(1) {
+	      width      : 200px;
+	   }
+	   
+	   td:not([colspan]):first-child {
+	      background : lightblue;
+	      color      : black;
+	      font-weight: bold;
+	   }
+	   
+	   input[readonly] {
+	      background : #EEE;
+	   }
+	   
+	   textarea {
+	   		height     : 250px; 
+	   		width      : 100%;
+	   }
 
 </style>
 
@@ -45,7 +45,7 @@
 <body>
   <main>
   
-  <%@include file="/WEB-INF/include/menus.jsp" %>
+  	<%@include file="/WEB-INF/include/menus.jsp" %>
   
 	<h2>게시글 등록</h2>
 	<form action="/Board/Write" method="POST">
@@ -54,10 +54,6 @@
 	 <tr>
 	   <td>제목</td>
 	   <td><input type="text" name="title" /></td>
-	 </tr>
-	 <tr>
-	   <td>메뉴</td>
-	   <td><input type="text" name="menu_id" value="${menu_id}" /></td>
 	 </tr>
 	 <tr>
 	   <td>작성자</td>

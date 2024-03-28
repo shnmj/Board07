@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.board.menus.domain.MenuVo;
-import com.board.menus.domain.MenuVo2;
 import com.board.menus.mapper.MenuMapper;
 
 @Controller
@@ -41,14 +40,14 @@ public class MenuController {
 		return "menus/write";  // /WEB-INF/views/ + menus/write + .jsp
 	}
 			
-	// Menu Commit
+	// 메뉴 저장 
 	// /Menus/Write?menu_id=MENU02&menu_name=JSP&menu_seq=2
 	// @RequestMapping("/Menus/Write")
 	@RequestMapping("/Write")  
 	// public   String   write( 
 	// String menu_id, String menu_name, int menu_seq) { 
 	// 인식 error     menu_id 못 찾음
-	public   String   write( MenuVo2  menuVo, Model model ) {   // Vo 로 작업. 
+	public   String   write( MenuVo  menuVo, Model model ) {   // Vo 로 작업. 
 		// 넘어온 데이터를 db 에 저장하고		
 		menuMapper.insertMenu( menuVo );
 		// menuMapper.insertMenu(menu_id, menu_name, menu_seq); // error
@@ -71,7 +70,7 @@ public class MenuController {
 	}
 	
 	@RequestMapping("/Write2")
-	public  String  write2(MenuVo2 menuVo) {
+	public  String  write2(MenuVo menuVo) {
 		// Commit
 		menuMapper.insertMenuByName( menuVo  );
 		
@@ -83,7 +82,7 @@ public class MenuController {
 	// Menu Delete /Menus/Delete?menu_id=MENU03	
 	@RequestMapping("/Delete")
 	@ResponseBody
-	public  String   delete( MenuVo2 menuVo ) {
+	public  String   delete( MenuVo menuVo ) {
 		
 		menuMapper.deleteMenu( menuVo );
 		
@@ -119,7 +118,7 @@ public class MenuController {
 	//-----------------------------
 	// /Menus/UpdateForm?menu_id=MENU04
 	@RequestMapping("/UpdateForm")
-	public  String  updateForm(MenuVo2 menuVo, Model model) {
+	public  String  updateForm(MenuVo menuVo, Model model) {
 		System.out.println("menuVo:" + menuVo);
 		String  menu_id = menuVo.getMenu_id();
 		
@@ -134,12 +133,12 @@ public class MenuController {
 	
 	// /Menus/Update?menu_id=MENU01&menu_name=JAVA&menu_seq=1
 	@RequestMapping("/Update")
-	public  String   update( MenuVo2 menuVo  ) {
+	public  String   update( MenuVo menuVo  ) {
 		
-		// Update
+		// 수정 
 		menuMapper.updateMenu( menuVo  );
 				
-		// Update 후 조회
+		// 수정 후 조회 
 		return  "redirect:/Menus/List";  		  
 	}
 	

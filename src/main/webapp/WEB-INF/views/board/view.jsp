@@ -13,40 +13,43 @@
    #table {
     width         : 800px;
     margin-bottom : 200px;
-   	td {
-   		text-align  : center;
-   		padding     : 10px;
-   		
-   		&:nth-of-type(1) {
-   				width  		       : 150px;
-   				background-color : lightblue;
-   				color            : black;
-   		} 
-   		&:nth-of-type(2) {width : 250px; } 
-   		&:nth-of-type(3) {
-   				width            : 150px; 
-   				background-color : lightblue;
-   				color            : black;
-   		} 
-   		&:nth-of-type(4) {width : 250px;}
-   	}
+	   		td {
+			   		text-align  : center;
+			   		padding     : 10px;
+			   		
+			   		input[type=text]  {width : 100%;}
+			   		textarea          {width : 100%; height : 250px;}
+			   		
+			   		&:nth-of-type(1) {
+			   				width  		       : 150px;
+			   				background-color : lightblue;
+			   				color            : black;
+			   		} 
+			   		&:nth-of-type(2) {width : 250px; } 
+			   		&:nth-of-type(3) {
+			   				width            : 150px; 
+			   				background-color : lightblue;
+			   				color            : black;
+			   		} 
+			   		&:nth-of-type(4) {width : 250px;}
+			   	}
    	 
-   	 tr:nth-of-type(3) td:nth-of-type(2) {
-   	 			text-align: center;
-   	 }	
-   		
-   	 tr:nth-of-type(4) td[colspan] {
-   				height         : 250px;
-   				width          : 600px; 
-   				text-align     : left;
-   				vertical-align : baseline;
-   			} 
-   		tr:last-child td {
-   				background-color : white;
-   				color            : black;
-   		}	
+		   	 tr:nth-of-type(3) td:nth-of-type(2) {
+		   	 			text-align: left;
+		   	 }	
+		   		
+		   	 tr:nth-of-type(4) td[colspan] {
+		   				height         : 250px;
+		   				width          : 600px; 
+		   				text-align     : left;
+		   				vertical-align : baseline;
+		   			} 
+		   	 tr:last-child td {
+		   				background-color : white;
+		   				color            : black;
+		   		}	
   
-  }
+  		}
   
 </style>
 
@@ -56,7 +59,7 @@
 <body>
   <main>
   
-  <%@include file="/WEB-INF/include/menus.jsp" %>
+  	<%@include file="/WEB-INF/include/menus.jsp" %>
   
 	<h2>게시글 내용 조회</h2>
 	<table id = "table">

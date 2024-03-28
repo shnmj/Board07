@@ -13,26 +13,26 @@
    #table {
     width         : 800px;
     margin-bottom : 200px;
-	   	td {
-	   		text-align  : center;
-	   		padding     : 10px;
-	   		
-	   		input[type=text]  {width : 100%}
-	   		textarea          {width : 100%; height : 250px;}
-	   		
-	   		&:nth-of-type(1) {
-	   				width  		       : 150px;
-	   				background-color : lightblue;
-	   				color            : black;
-	   		} 
-	   		&:nth-of-type(2) {width : 250px; } 
-	   		&:nth-of-type(3) {
-	   				width            : 150px; 
-	   				background-color : lightblue;
-	   				color            : black;
-	   		} 
-	   		&:nth-of-type(4) {width : 250px;}
-	   	}
+	   		td {
+			   		text-align  : center;
+			   		padding     : 10px;
+			   		
+			   		input[type=text]  {width : 100%;}
+			   		textarea          {width : 100%; height : 250px;}
+			   		
+			   		&:nth-of-type(1) {
+			   				width  		       : 150px;
+			   				background-color : lightblue;
+			   				color            : black;
+			   		} 
+			   		&:nth-of-type(2) {width : 250px; } 
+			   		&:nth-of-type(3) {
+			   				width            : 150px; 
+			   				background-color : lightblue;
+			   				color            : black;
+			   		} 
+			   		&:nth-of-type(4) {width : 250px;}
+			   	}
    	 
 		   	 tr:nth-of-type(3) td:nth-of-type(2) {
 		   	 			text-align: left;
@@ -44,22 +44,23 @@
 		   				text-align     : left;
 		   				vertical-align : baseline;
 		   			} 
-		   		tr:last-child td {
+		   	 tr:last-child td {
 		   				background-color : white;
 		   				color            : black;
 		   		}	
   
-  }
+  		}
   
 </style>
 
 <script src ="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" ></script>
-<script src="https://cdn.jsdelivr.net/npm/browser-scss@1.0.3/dist/browser-scss.min.js"></script>
+<script src ="https://cdn.jsdelivr.net/npm/browser-scss@1.0.3/dist/browser-scss.min.js"></script>
+
 </head>
 <body>
   <main>
   
-  <%@include file="/WEB-INF/include/menus.jsp" %>
+  	<%@include file="/WEB-INF/include/menus.jsp" %>
   
 	<h2>게시글 내용 수정</h2>
 	<form action="/Board/Update" method = "POST">

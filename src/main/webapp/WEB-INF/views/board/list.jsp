@@ -72,11 +72,11 @@
 	    <tr>
 	      <td>${boardVo.bno}</td>
 	      <td>
-	      	<a href="/Board/View?bno=${boardVo.bno}">
-	      	${boardVo.title}
+	      	<a href="/Board/View?bno=${boardVo.bno}&menu_id=${boardVo.menu_id}" >
+	      		${boardVo.title}
 	      	</a>
 	      </td>
-	      <td>${boardVo.writer }</td>	      
+	      <td>${boardVo.writer}</td>	      
 	      <td>${boardVo.regdate}</td>	      
 	      <td>${boardVo.hit}</td>      
 	    </tr>

@@ -18,12 +18,12 @@
   }
   
   tr:first-child {
-     background-color: grey;
-     color : white;
+     background-color : lightblue;
+     color            : black;
      font-weight: bold;
      /* SCSS 문법에 적용 */
      td {
-        border-color : white;
+        border-color  : white;
      }
   }
     
@@ -42,8 +42,8 @@
 	      <td>Menu_id</td>
 	      <td>Menu_name</td>
 	      <td>Menu_seq</td>
-	      <td>Update</td>
-	      <td>Delete</td>
+	      <td>수정</td>
+	      <td>삭제</td>
 	    </tr>
 	    <tr>
 	      <td colspan="5">

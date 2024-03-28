@@ -20,6 +20,6 @@ public interface BoardMapper {
 
 	void deleteBoard(BoardVo boardVo);
 
-	void updateBoard();
+	void updateBoard(BoardVo boardVo);
 
 }

@@ -4,23 +4,23 @@
   <insert id="insertMenu">
       INSERT INTO MENUS 
           (
-            MENU_ID,
-            MENU_NAME,
-            MENU_SEQ 
+             MENU_ID
+            ,MENU_NAME
+            ,MENU_SEQ 
           )
         VALUES (
-            #{menu_id},
-            #{menu_name},
-            #{menu_seq}
+             #{menu_id}
+            ,#{menu_name}
+            ,#{menu_seq}
           )   
   </insert> 
   
   <insert  id="insertMenuByName">
   	
   	INSERT  INTO  MENUS  ( 
-        MENU_ID, 
-        MENU_NAME, 
-        MENU_SEQ  )
+         MENU_ID
+        ,MENU_NAME 
+        ,MENU_SEQ )
     VALUES   ( 
        ( SELECT  'MENU' ||  
             TRIM(TO_CHAR( NVL( MAX ( SUBSTR( MENU_ID, 5, 2) ) , '00')+1, '00') )  
@@ -54,10 +54,10 @@
   </delete>
   
   <update  id="updateMenu">
-  	UPDATE   MENUS
-  	SET      MENU_NAME =  #{menu_name},
-  	         MENU_SEQ  =  #{menu_seq} 
-  	WHERE    MENU_ID   =  #{menu_id} 
+  	UPDATE    MENUS
+  	SET       MENU_NAME =  #{menu_name}
+  	         ,MENU_SEQ  =  #{menu_seq} 
+  	WHERE     MENU_ID   =  #{menu_id} 
   </update>
 
   
