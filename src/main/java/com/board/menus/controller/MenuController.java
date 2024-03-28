@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.board.menus.domain.MenuVo;
+import com.board.menus.domain.MenuVo2;
 import com.board.menus.mapper.MenuMapper;
 
 @Controller
@@ -22,7 +22,7 @@ public class MenuController {
 	@RequestMapping("/List")   
 	public   String   list( Model model ) {
 		// 조회결과 -> ArrayList 로 돌려줌 
-		List<MenuVo> menuList = menuMapper.getMenuList();
+		List<MenuVo2> menuList = menuMapper.getMenuList();
 				
 		// 조회 결과 넘겨줌 ( Model )
 		model.addAttribute( "menuList", menuList );
@@ -47,7 +47,7 @@ public class MenuController {
 	// public   String   write( 
 	// String menu_id, String menu_name, int menu_seq) { 
 	// 인식 error     menu_id 못 찾음
-	public   String   write( MenuVo  menuVo, Model model ) {   // Vo 로 작업. 
+	public   String   write( MenuVo2  menuVo, Model model ) {   // Vo 로 작업. 
 		// 넘어온 데이터를 db 에 저장하고		
 		menuMapper.insertMenu( menuVo );
 		// menuMapper.insertMenu(menu_id, menu_name, menu_seq); // error
@@ -70,7 +70,7 @@ public class MenuController {
 	}
 	
 	@RequestMapping("/Write2")
-	public  String  write2(MenuVo menuVo) {
+	public  String  write2(MenuVo2 menuVo) {
 		// Commit
 		menuMapper.insertMenuByName( menuVo  );
 		
@@ -82,7 +82,7 @@ public class MenuController {
 	// Menu Delete /Menus/Delete?menu_id=MENU03	
 	@RequestMapping("/Delete")
 	@ResponseBody
-	public  String   delete( MenuVo menuVo ) {
+	public  String   delete( MenuVo2 menuVo ) {
 		
 		menuMapper.deleteMenu( menuVo );
 		
@@ -118,12 +118,12 @@ public class MenuController {
 	//-----------------------------
 	// /Menus/UpdateForm?menu_id=MENU04
 	@RequestMapping("/UpdateForm")
-	public  String  updateForm(MenuVo menuVo, Model model) {
+	public  String  updateForm(MenuVo2 menuVo, Model model) {
 		System.out.println("menuVo:" + menuVo);
 		String  menu_id = menuVo.getMenu_id();
 		
 		// 수정할 데이터를 menu_id 조회
-		MenuVo  menu  = menuMapper.getMenu( menu_id );
+		MenuVo2  menu  = menuMapper.getMenu( menu_id );
 		
 		// 조회한 내용을 모델에 담음 
 		model.addAttribute("menu", menu);
@@ -133,7 +133,7 @@ public class MenuController {
 	
 	// /Menus/Update?menu_id=MENU01&menu_name=JAVA&menu_seq=1
 	@RequestMapping("/Update")
-	public  String   update( MenuVo menuVo  ) {
+	public  String   update( MenuVo2 menuVo  ) {
 		
 		// Update
 		menuMapper.updateMenu( menuVo  );

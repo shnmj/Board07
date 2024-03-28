@@ -5,12 +5,12 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.board.domain.BoardVo;
-import com.board.menus.domain.MenuVo;
+import com.board.menus.domain.MenuVo2;
 
 @Mapper
 public interface BoardMapper {
 
-	List<BoardVo> getBoardList(MenuVo menuVo);
+	List<BoardVo> getBoardList(MenuVo2 menuVo);
 
 	void insertBoard(BoardVo boardVo);
 

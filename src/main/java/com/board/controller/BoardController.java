@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.board.domain.BoardVo;
 import com.board.mapper.BoardMapper;
-import com.board.menus.domain.MenuVo;
+import com.board.menus.domain.MenuVo2;
 import com.board.menus.mapper.MenuMapper;
 
 import lombok.extern.slf4j.Slf4j;
@@ -28,12 +28,12 @@ public class BoardController {
 	
 	// /Board/List?menu_id=MENU01
 	@RequestMapping("/List")
-	public ModelAndView list(MenuVo menuVo) {
+	public ModelAndView list(MenuVo2 menuVo) {
 	// public ModelAndView list(@Param String menu_id) {  -- Legacy ver.
 		log.info("============ menuVo : { }", menuVo);
 		
 		// 메뉴 목록
-		List<MenuVo> menuList   = menuMapper.getMenuList();
+		List<MenuVo2> menuList   = menuMapper.getMenuList();
 		
 		
 		// 게시물 목록
@@ -53,10 +53,10 @@ public class BoardController {
 	
 	// /Board/WriteForm?menu_id=MENU01
 	@RequestMapping("/WriteForm")
-	public ModelAndView writeForm(MenuVo menuVo) {
+	public ModelAndView writeForm(MenuVo2 menuVo) {
 		
 		// 메뉴 목록 조회
-		List<MenuVo> mList = menuMapper.getMenuList();
+		List<MenuVo2> mList = menuMapper.getMenuList();
 		System.out.println("<MenuList> : " + mList);
 		
 		// ?menu_id=MENU01 넘어온 menu_id 처리
@@ -95,7 +95,7 @@ public class BoardController {
 	public ModelAndView view(BoardVo boardVo) {
 		
 		// 메뉴목록 조회
-		List<MenuVo>  menuList = menuMapper.getMenuList();
+		List<MenuVo2>  menuList = menuMapper.getMenuList();
 		
 		// 조회수 증가 (현재 bno의 hit = hit+1)
 		boardMapper.incHit(boardVo);
