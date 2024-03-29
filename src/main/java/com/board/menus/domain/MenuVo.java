@@ -18,20 +18,5 @@ public class MenuVo {
 	private  String  menu_id;	
 	private  String  menu_name;
 	private  int     menu_seq;
-	public String getMenu_id() {
-		return null;
-	}
-	public String getMenu_name() {
-		return menu_name;
-	}
-	public void setMenu_name(String menu_name) {
-		this.menu_name = menu_name;
-	}
-	public int getMenu_seq() {
-		return menu_seq;
-	}
-	public void setMenu_seq(int menu_seq) {
-		this.menu_seq = menu_seq;
-	}
 		
 }

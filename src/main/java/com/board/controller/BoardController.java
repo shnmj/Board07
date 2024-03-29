@@ -2,7 +2,6 @@ package com.board.controller;
 
 import java.util.List;
 
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +12,6 @@ import com.board.mapper.BoardMapper;
 import com.board.menus.domain.MenuVo;
 import com.board.menus.mapper.MenuMapper;
 
-import ch.qos.logback.classic.Logger;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -32,7 +30,6 @@ public class BoardController {
 	@RequestMapping("/List")
 	public ModelAndView list(MenuVo menuVo) {
 	// public ModelAndView list(@Param String menu_id) {  -- Legacy ver.
-		Logger log = (Logger) LoggerFactory.getLogger(BoardController.class);
 		log.info("============ menuVo : { }", menuVo);
 		
 		// 메뉴 목록

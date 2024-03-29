@@ -9,7 +9,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +17,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.board.user.domain.UserVo;
 import com.board.user.mapper.UserMapper;
 
-import ch.qos.logback.classic.Logger;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -83,7 +81,6 @@ public class UserController {
 		// userid=U0005  -> db 조회
 		HashMap<String, Object>  map  =  userMapper.getUser(userVo);
 		// System.out.println(vo);
-		Logger log = (Logger) LoggerFactory.getLogger(UserController.class);
 		log.info("map : {}", map); 
 		
 		// map.get("userid")
@@ -115,7 +112,6 @@ public class UserController {
 	@RequestMapping("/Update")
 	public ModelAndView update(UserVo userVo) {
 		
-		Logger log = (Logger) LoggerFactory.getLogger(UserController.class);
 		log.info("userVo : {}", userVo);
 		
 		// 수정 
