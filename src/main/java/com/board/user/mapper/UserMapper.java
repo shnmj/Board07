@@ -20,4 +20,6 @@ public interface UserMapper {
 
 	void deleteUser(UserVo userVo);
 
+	UserVo login(String userid, String passwd);
+
 }
