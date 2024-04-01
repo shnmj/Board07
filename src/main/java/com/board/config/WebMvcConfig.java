@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import com.board.intercepter.LoginCheckInterceptor;
+import com.board.interceptor.LoginCheckInterceptor;
 
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
@@ -16,16 +16,16 @@ public class WebMvcConfig implements WebMvcConfigurer {
 	//      : SpringBoot Project 는 설정을 WebMvcConfig.java에 저장
 	
 	@Autowired
-	   private  LoginCheckInterceptor   loginCheckInterceptor;
+	   private  LoginCheckInterceptor loginCheckInterceptor;
 	   
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 
-       System.out.println("okokok");
+       // System.out.println("okokok");
         registry.addInterceptor( loginCheckInterceptor )
                 .addPathPatterns("/**")      // http://localhost:9090/
                 .addPathPatterns("/**/*")    
-                .excludePathPatterns("/log*","/css/**", "/img/**", "/js/**");
+                .excludePathPatterns("/log*", "/css/**", "/img/**", "/js/**");
         
     }
 	
