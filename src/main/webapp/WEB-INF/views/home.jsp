@@ -26,12 +26,15 @@
 	<div><a href="/Board/List?menu_id=MENU01">게시물 목록</a></div>
 	<div><a href="/Board/WriteForm?menu_id=MENU01">게시물 등록</a></div>
 	<div>&nbsp;</div>
+	<div><a href="/BoardPaging/List?menu_id=MENU01">게시물 목록(페이징)</a></div>
+	<div><a href="/BoardPaging/WriteForm?menu_id=MENU01">게시물 등록(페이징)</a></div>
+	<div>&nbsp;</div>
 	<c:if test= "${sessionScope.login == null || login == '' }">
 	<div><a href="/loginForm">로그인</a></div>
 	</c:if>
 	<div>
-		${login.username} 님 Welcome!<br>
-		당신의 가입일은 ${login.indate} 입니다<br>
+		${login.username} 님 접속중<br>
+		가입일 "${login.indate}"<br>
 	</div>
 	<div><a href="/logout">로그아웃</a></div>
   </main>	
